@@ -1,4 +1,4 @@
-public class Ghost extends Undead {
+public class Ghost extends Undead { //Ghost Undead
     public Ghost(String name) {
         super.setName(name);
         super.setHP(super.getHP()/2);
