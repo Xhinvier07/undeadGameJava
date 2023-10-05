@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class UndeadGameUI extends JFrame { //test
+public class UndeadGameUI extends JFrame { //test UI
     private ArrayList<Undead> undeadList = new ArrayList<>();
 
     public UndeadGameUI() {
