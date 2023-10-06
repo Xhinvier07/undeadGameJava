@@ -13,13 +13,13 @@ public class Mummy extends Zombie {
         if (!isDead() && !target.isDead()) {
             int damage = (int) ((getHP() / 2) + (target.getHP() * 0.10)); // Mummy's attack damage
 
-            if (target.getName().contains("- Ghost")) {
+            if (target instanceof Ghost) { //use instanceof instead of contains
                 int reducedDamage = Main.attackGhost((Ghost) target, damage);
 
                 System.out.println(getName() + " attacks " + target.getName() + " with " + reducedDamage + " damage. ");
                 System.out.println(target.getName() + " HP: " + target.getHP());
             }
-            else if(target.getName().contains("- Mummy")){
+            else if(target instanceof Mummy){//use instanceof instead of contains
                 System.out.println("Can't attack own kind.");
             }
 

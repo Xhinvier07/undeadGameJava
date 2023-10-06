@@ -11,7 +11,7 @@ public class Lich extends Skeleton {
     public void attack(Undead target) {
         if (!target.isDead() && getHP() != 0 ) {
             int damage = (int) (getHP() * 0.7); // Lich's attack damage
-            if (target.getName().contains("- Ghost")){
+            if (target instanceof Ghost){
                 int reducedDamage = Main.attackGhost((Ghost) target, damage);
 
                 System.out.println(getName() + " attacks " + target.getName() + " with " + reducedDamage + " damage. ");

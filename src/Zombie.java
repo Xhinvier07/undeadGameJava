@@ -8,7 +8,7 @@ public class Zombie extends Undead {
     public void attack(Undead target) {
         if (getHP() > 50 && !target.isDead()) {
             int damage = getHP() / 2;
-            if (target.getName().contains("- Ghost")){
+            if (target instanceof Ghost){//use instanceof instead of contains
                 int reducedDamage = Main.attackGhost((Ghost) target, damage);
 
                 System.out.println(getName() + " attacks " + target.getName() + " with " + reducedDamage + " damage. ");

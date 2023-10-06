@@ -8,7 +8,7 @@ public class Ghost extends Undead { //Ghost Undead
     public void attack(Undead target) {
         if (!isDead() && !target.isDead()) {
             int damage = (int) (getHP()* 0.2);
-            if (target.getName().contains("- Ghost")){
+            if (target instanceof Ghost){//use instanceof instead of contains
                 int reducedDamage = Main.attackGhost((Ghost) target, damage);
                 
                 System.out.println(getName() + " attacks " + target.getName() + " with " + reducedDamage + " damage. ");

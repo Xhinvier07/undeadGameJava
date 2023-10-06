@@ -7,7 +7,7 @@ public class Vampire extends Undead {
     public void attack(Undead target) {
         if (!target.isDead() && getHP() != 0 ) {
             int damage = getHP();
-            if (target.getName().contains("- Ghost")){
+            if (target instanceof Ghost){//use instanceof instead of contains
                 int reducedDamage = Main.attackGhost((Ghost) target, damage);
 
                 System.out.println(getName() + " attacks " + target.getName() + " with " + reducedDamage + " damage. ");
