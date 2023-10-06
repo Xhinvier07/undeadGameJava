@@ -268,10 +268,16 @@ import java.util.Scanner;
             }
         }
 
+        // If there are no one else to attack except the attacker itself, print a message
+        if (undeadList.size() == 1) {
+            System.out.println("There is no one else to attack but yourself. Populate the world with more undead first!");
+            return;
+        }
+
         System.out.print("Enter the number of the undead to attack: ");
         int targetIndex = scanner.nextInt();
 
-        if (targetIndex < 1 || targetIndex > undeadList.size()) {
+        if (targetIndex < 1 || targetIndex > undeadList.size() || undeadList.get(targetIndex) == attacker) {
             System.out.println("Invalid target.");
             return;
         }
