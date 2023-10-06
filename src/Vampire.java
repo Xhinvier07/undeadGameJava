@@ -10,8 +10,8 @@ public class Vampire extends Undead {
             if (target instanceof Ghost){//use instanceof instead of contains
                 int reducedDamage = Main.attackGhost((Ghost) target, damage);
 
-                System.out.println(getName() + " attacks " + target.getName() + " with " + reducedDamage + " damage. ");
-                System.out.println(target.getName() + " HP: " + target.getHP());
+                System.out.println("\t\t"+getName() + " attacks " + target.getName() + " with "+ Main.ANSI_RED + reducedDamage + " damage "+ Main.ANSI_RESET);
+                System.out.println("\t\t"+target.getName()+ Main.ANSI_GREEN + " HP: " + target.getHP()+ Main.ANSI_RESET);
             }
             else{
                 target.setHP(target.getHP() - damage);
@@ -19,8 +19,8 @@ public class Vampire extends Undead {
                     target.setHP(0);
                     target.isDead(true);
                 }
-                System.out.println(getName() + " attacks " + target.getName() + " with " + damage + " damage. ");
-                System.out.println(target.getName() + " HP: " + target.getHP());
+                System.out.println("\t\t"+getName() + " attacks " + target.getName() + " with "+ Main.ANSI_RED + damage + " damage "+ Main.ANSI_RESET);
+                System.out.println("\t\t"+target.getName() + Main.ANSI_GREEN+" HP: " + target.getHP()+Main.ANSI_RESET);
             }
 
         }
@@ -35,8 +35,8 @@ public class Vampire extends Undead {
         if (!isDead() && !target.isDead()) {
             int healAmount = (int) (target.getHP() * 0.8);
             setHP(getHP() + healAmount);
-            System.out.println(getName() + " heals " + target.getName() + " with " + healAmount + " HP. ");
-            System.out.println(target.getName() + " HP: " + target.getHP());
+            System.out.println("\t\t"+getName() + " heals "  + "with " + Main.ANSI_BLUE + healAmount + " HP "+Main.ANSI_RESET);
+            System.out.println("\t\t"+target.getName() + Main.ANSI_GREEN+ " HP: " + target.getHP()+Main.ANSI_RESET);
         }
     }
 }

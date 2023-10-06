@@ -16,11 +16,11 @@ public class Mummy extends Zombie {
             if (target instanceof Ghost) { //use instanceof instead of contains
                 int reducedDamage = Main.attackGhost((Ghost) target, damage);
 
-                System.out.println(getName() + " attacks " + target.getName() + " with " + reducedDamage + " damage. ");
-                System.out.println(target.getName() + " HP: " + target.getHP());
+                System.out.println("\t\t"+getName() + " attacks " + target.getName() + " with "+ Main.ANSI_RED + reducedDamage + " damage "+ Main.ANSI_RESET);
+                System.out.println("\t\t"+target.getName()+ Main.ANSI_GREEN + " HP: " + target.getHP()+ Main.ANSI_RESET);
             }
             else if(target instanceof Mummy){//use instanceof instead of contains
-                System.out.println("Can't attack own kind.");
+                System.out.println(Main.ANSI_RED+"\t\t"+"Can't attack own kind."+ Main.ANSI_RESET);
             }
 
             else {
@@ -29,8 +29,8 @@ public class Mummy extends Zombie {
                     target.setHP(0);
                     target.isDead(true);
                 }
-                System.out.println(getName() + " attacks " + target.getName() + " with " + damage + " damage. ");
-                System.out.println(target.getName() + " HP: " + target.getHP());
+                System.out.println("\t\t"+getName() + " attacks " + target.getName() + " with "+ Main.ANSI_RED + damage + " damage "+ Main.ANSI_RESET);
+                System.out.println("\t\t"+target.getName() + Main.ANSI_GREEN+" HP: " + target.getHP()+Main.ANSI_RESET);
             }
         }
     }
@@ -40,13 +40,13 @@ public class Mummy extends Zombie {
             if (isDead()) {
                 super.setHP(initialHP);
                 isDead(false);
-                System.out.println(getName() + " has been revived with " + initialHP + " HP.");
+                System.out.println("\t\t"+getName() + " has been revived with "+ Main.ANSI_GREEN+ initialHP + " HP."+Main.ANSI_RESET);
                 revived = true;
             } else {
-                System.out.println(getName() + " is not dead and cannot be revived.");
+                System.out.println(Main.ANSI_RED+"\t\t"+getName() + " is not dead and cannot be revived."+Main.ANSI_RESET);
             }
         } else {
-            System.out.println(getName() + " has already been revived.");
+            System.out.println(Main.ANSI_BLUE+"\t\t"+getName() + " has already been revived."+Main.ANSI_RESET);
         }
     }
 

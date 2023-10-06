@@ -14,8 +14,8 @@ public class Lich extends Skeleton {
             if (target instanceof Ghost){
                 int reducedDamage = Main.attackGhost((Ghost) target, damage);
 
-                System.out.println(getName() + " attacks " + target.getName() + " with " + reducedDamage + " damage. ");
-                System.out.println(target.getName() + " HP: " + target.getHP());
+                System.out.println("\t\t"+getName() + " attacks " + target.getName() + " with "+ Main.ANSI_RED + reducedDamage + " damage "+ Main.ANSI_RESET);
+                System.out.println("\t\t"+target.getName()+ Main.ANSI_GREEN + " HP: " + target.getHP()+ Main.ANSI_RESET);
             }
             else{
                 target.setHP(target.getHP() - damage);
@@ -23,8 +23,8 @@ public class Lich extends Skeleton {
                     target.setHP(0);
                     target.isDead(true);
                 }
-                System.out.println(getName() + " attacks " + target.getName() + " with " + damage + " damage. ");
-                System.out.println(target.getName() + " HP: " + target.getHP());
+                System.out.println("\t\t"+getName() + " attacks " + target.getName() + " with "+ Main.ANSI_RED + damage + " damage "+ Main.ANSI_RESET);
+                System.out.println("\t\t"+target.getName() + Main.ANSI_GREEN+" HP: " + target.getHP()+Main.ANSI_RESET);
             }
 
         }
@@ -40,8 +40,8 @@ public class Lich extends Skeleton {
             int hpAbsorb = (int) (target.getHP() * 0.1);
             target.setHP(target.getHP() - hpAbsorb);
             setHP(getHP() + hpAbsorb);
-            System.out.println(getName() + " heals " + target.getName() + " with " + hpAbsorb + " HP. ");
-            System.out.println(target.getName() + " HP: " + target.getHP());
+            System.out.println("\t\t"+getName() + " heals "  + "with " + Main.ANSI_BLUE + hpAbsorb + " HP "+Main.ANSI_RESET);
+            System.out.println("\t\t"+target.getName() + Main.ANSI_GREEN+ " HP: " + target.getHP()+Main.ANSI_RESET);
         }
     }
 }
