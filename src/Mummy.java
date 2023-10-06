@@ -14,14 +14,8 @@ public class Mummy extends Zombie {
             int damage = (int) ((getHP() / 2) + (target.getHP() * 0.10)); // Mummy's attack damage
 
             if (target.getName().contains("- Ghost")) {
+                int reducedDamage = Main.attackGhost((Ghost) target, damage);
 
-                int reducedDamage = (int) (damage * 0.10);
-                target.setHP(target.getHP() - reducedDamage);
-
-                if (target.getHP() <= 0) {
-                    target.setHP(0);
-                    target.isDead(true);
-                }
                 System.out.println(getName() + " attacks " + target.getName() + " with " + reducedDamage + " damage. ");
                 System.out.println(target.getName() + " HP: " + target.getHP());
             }

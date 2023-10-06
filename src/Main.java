@@ -277,7 +277,7 @@ import java.util.Scanner;
         System.out.print("Enter the number of the undead to attack: ");
         int targetIndex = scanner.nextInt();
 
-        if (targetIndex < 1 || targetIndex > undeadList.size() || undeadList.get(targetIndex) == attacker) {
+        if (targetIndex < 1 || targetIndex > undeadList.size() || undeadList.get(targetIndex - 1).equals(attacker)) {
             System.out.println("Invalid target.");
             return;
         }
@@ -381,5 +381,17 @@ import java.util.Scanner;
             System.out.println("HP: " + undead.getHP());
             System.out.println("State: " + (undead.isDead() ? "dead" : "alive"));
         }
+    }
+
+    //attack ghost and reduce damage (ghost only receives 10% damage)
+    public static int attackGhost(Ghost target, int damage) {
+        int reducedDamage = (int) (damage * 0.10);
+        target.setHP(target.getHP() - reducedDamage);
+        if (target.getHP() <= 0) {
+            target.setHP(0);
+            target.isDead(true);
+        }
+        
+        return reducedDamage;
     }
 }

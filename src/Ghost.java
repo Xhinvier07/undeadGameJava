@@ -9,12 +9,8 @@ public class Ghost extends Undead { //Ghost Undead
         if (!isDead() && !target.isDead()) {
             int damage = (int) (getHP()* 0.2);
             if (target.getName().contains("- Ghost")){
-                int reducedDamage = (int) (damage * 0.10);
-                target.setHP(target.getHP() - reducedDamage);
-                if (target.getHP() <= 0) {
-                    target.setHP(0);
-                    target.isDead(true);
-                }
+                int reducedDamage = Main.attackGhost((Ghost) target, damage);
+                
                 System.out.println(getName() + " attacks " + target.getName() + " with " + reducedDamage + " damage. ");
                 System.out.println(target.getName() + " HP: " + target.getHP());
             }
