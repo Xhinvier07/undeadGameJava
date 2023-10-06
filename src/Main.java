@@ -1,7 +1,5 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-
-
  class Main {
     public static void main(String[] args) {
         /*
@@ -12,6 +10,7 @@ import java.util.Scanner;
         });
 
 */
+
         Scanner scanner = new Scanner(System.in);
         ArrayList<Undead> undeadList = new ArrayList<>();
 
@@ -268,7 +267,7 @@ import java.util.Scanner;
             }
         }
 
-        // If there are no one else to attack except the attacker itself, print a message
+        // If there are no one else to attack except the attacker itself, print a message (dane commit)
         if (undeadList.size() == 1) {
             System.out.println("There is no one else to attack but yourself. Populate the world with more undead first!");
             return;
@@ -277,7 +276,7 @@ import java.util.Scanner;
         System.out.print("Enter the number of the undead to attack: ");
         int targetIndex = scanner.nextInt();
 
-        if (targetIndex < 1 || targetIndex > undeadList.size() || undeadList.get(targetIndex - 1).equals(attacker)) {
+        if (targetIndex < 1 || targetIndex > undeadList.size() || undeadList.get(targetIndex - 1).equals(attacker)) { //adjusted can't attack self
             System.out.println("Invalid target.");
             return;
         }
@@ -383,7 +382,7 @@ import java.util.Scanner;
         }
     }
 
-    //attack ghost and reduce damage (ghost only receives 10% damage)
+    //attack ghost and reduce damage (ghost only receives 10% damage) (dane commit)
     public static int attackGhost(Ghost target, int damage) {
         int reducedDamage = (int) (damage * 0.10);
         target.setHP(target.getHP() - reducedDamage);
