@@ -1,10 +1,10 @@
-<h2>UndeadGame Java (Version 1.0)</h2>
-# <span style="color: #ff5733;">WELCOME TO THE DAWN OF THE UNDEAD</span>
+## UndeadGame Java (Version 1.0)
 
-Created and programmed by xhinvier, arcanecovet, nana-joy
+# WELCOME TO THE DAWN OF THE UNDEAD 💀💀💀
 
-## <span style="color: #33ff33;">NOTES:</span>
+Created and programmed by xhinvier, arcanecovet, nana-joy 
 
+### NOTES❗❗❗
 - There may be some issues with the ANSI color code scheme; if any bugs occur, please set the ANSI code values to "".
 - UndeadGameUI is a work in progress.
 - Program version 1.0, with potential improvements and additional features in the pipeline.
@@ -12,4 +12,4 @@ Created and programmed by xhinvier, arcanecovet, nana-joy
 - This is a project submitted for OOP subject.
 
 Thank you,
-The Developers
+The Developers ❤️
