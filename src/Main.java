@@ -10,6 +10,7 @@ class Main {
     public static final String ANSI_YELLOW = "\u001B[33m";
     public static final String ANSI_BLUE = "\u001B[34m";
     public static boolean useANSIColors = true; //on and off colors (might have bugs depending on the IDE)
+    //if you are experiencing errors in the text colors, change the string values to ""
 
 
     public static void main(String[] args) {
@@ -76,22 +77,22 @@ class Main {
 
         switch (choice) {
             case 1:
-                undead = new Zombie(name.isEmpty() ? "Zombie" : name + " - Zombie");
+                undead = new Zombie(name.isEmpty() ? "Zombie" : name + ANSI_YELLOW + " - Zombie" + ANSI_RESET);
                 break;
             case 2:
-                undead = new Vampire(name.isEmpty() ? "Vampire" : name + " - Vampire");
+                undead = new Vampire(name.isEmpty() ? "Vampire" : name + ANSI_YELLOW + " - Vampire" + ANSI_RESET);
                 break;
             case 3:
-                undead = new Skeleton(name.isEmpty() ? "Skeleton" : name + " - Skeleton");
+                undead = new Skeleton(name.isEmpty() ? "Skeleton" : name + ANSI_YELLOW + " - Skeleton" + ANSI_RESET);
                 break;
             case 4:
-                undead = new Ghost(name.isEmpty() ? "Ghost" : name + " - Ghost");
+                undead = new Ghost(name.isEmpty() ? "Ghost" : name + ANSI_YELLOW + " - Ghost" + ANSI_RESET);
                 break;
             case 5:
-                undead = new Lich(name.isEmpty() ? "Lich" : name + " - Lich"); //
+                undead = new Lich(name.isEmpty() ? "Lich" : name + ANSI_YELLOW +" - Lich" + ANSI_RESET); //
                 break;
             case 6:
-                undead = new Mummy(name.isEmpty() ? "Mummy" : name + " - Mummy");
+                undead = new Mummy(name.isEmpty() ? "Mummy" : name + ANSI_YELLOW + " - Mummy" + ANSI_RESET);
                 break;
             default:
                 System.out.println(ANSI_BLUE + "\tInvalid choice. Undead creation failed." + ANSI_RESET);
@@ -390,12 +391,19 @@ class Main {
     //method display
     public static void displayUndead(ArrayList<Undead> undeadList) {
         System.out.println(ANSI_BLUE + "\n-.-. .. -- --- - .- / -- .- / .." + ANSI_RESET);
-        System.out.println(ANSI_YELLOW + "\n=== " + ANSI_RESET + "UNDEAD LIST");
+        System.out.println(ANSI_YELLOW + "\n=== " + ANSI_RESET + "THE UNDEAD LIST");
 
         for (Undead undead : undeadList) {
-            System.out.println("\t" + undead.getName());
-            System.out.println("\tHP: " + undead.getHP());
-            System.out.println("\tState: " + (undead.isDead() ? "DEAD" : "ALIVE"));
+            System.out.println("\n\t" + undead.getName());
+            String hpColor = (undead.getHP() == 0) ? ANSI_RED : ANSI_GREEN;
+            System.out.println("\tHP: " + hpColor + undead.getHP() + ANSI_RESET);
+            System.out.print("\tState: ");
+
+            if (undead.isDead()) {
+                System.out.println(ANSI_RED + "DEAD" + ANSI_RESET);
+            } else {
+                System.out.println(ANSI_BLUE + "ALIVE" + ANSI_RESET);
+            }
         }
     }
 
