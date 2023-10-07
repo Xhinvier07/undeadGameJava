@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="undeadGame:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/undeadGame_jar</output-path>
+    <root id="archive" name="undeadGame.jar">
+      <element id="module-output" name="undeadGame" />
+    </root>
+  </artifact>
+</component>
