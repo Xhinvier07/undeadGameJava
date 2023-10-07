@@ -1,13 +1,15 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
 class Main {
+
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_RED = "\u001B[31m";
     public static final String ANSI_GREEN = "\u001B[32m";
     public static final String ANSI_YELLOW = "\u001B[33m";
     public static final String ANSI_BLUE = "\u001B[34m";
-
+    public static boolean useANSIColors = true; //on and off colors (might have bugs depending on the IDE)
 
 
     public static void main(String[] args) {
@@ -44,7 +46,7 @@ class Main {
                     displayUndead(undeadList);
                     break;
                 case 4:
-                    System.out.println(ANSI_BLUE + "\n--- ..- .-. / ... --- ..- .-.. ..." + ANSI_RESET);
+                    System.out.println(ANSI_BLUE + "\n-.-- --- ..- .-. / ... --- ..- .-.. / .. ... / -- .. -. ." + ANSI_RESET);
                     System.out.println(ANSI_GREEN + "Exiting the game." + ANSI_RESET);
                     return;
                 default:
@@ -54,7 +56,7 @@ class Main {
     }
 
     public static void createUndead(ArrayList<Undead> undeadList, Scanner scanner) {
-        System.out.println(ANSI_BLUE + "\n-. --- / .- ... -.-. .- .-- ." + ANSI_RESET);
+        System.out.println(ANSI_BLUE + "\n..- -. .-.. . .- ... .... / - .... . / -.. . ...- .. .-.." + ANSI_RESET);
         System.out.println(ANSI_YELLOW + "\n=== " + ANSI_RESET + "CHOOSE YOUR UNDEAD TYPE:");
         System.out.println("\t1. Zombie");
         System.out.println("\t2. Vampire");
@@ -106,7 +108,7 @@ class Main {
             return;
         }
 
-        System.out.println(ANSI_BLUE + "\n.--. --- .-- . .-. / .... ..- -. --. -.-- / .--. . --- .-- . .- " + ANSI_RESET);
+        System.out.println(ANSI_BLUE + "\n- .... . / -.-. .... . .- - / -.-. --- -.. . / .. ... / .- .. -. --.. " + ANSI_RESET);
         System.out.println(ANSI_YELLOW + "\n=== " + ANSI_RESET + "CHOOSE AN UNDEAD TO COMMAND:");
         for (int i = 0; i < undeadList.size(); i++) {
             System.out.println("\t" + (i + 1) + ". " + undeadList.get(i).getName());
@@ -387,7 +389,7 @@ class Main {
 
     //method display
     public static void displayUndead(ArrayList<Undead> undeadList) {
-        System.out.println(ANSI_BLUE + "\n.-- .- -. - / - --- / -.-. --- -. - - --- .- .-.." + ANSI_RESET);
+        System.out.println(ANSI_BLUE + "\n-.-. .. -- --- - .- / -- .- / .." + ANSI_RESET);
         System.out.println(ANSI_YELLOW + "\n=== " + ANSI_RESET + "UNDEAD LIST");
 
         for (Undead undead : undeadList) {
@@ -407,5 +409,8 @@ class Main {
         }
 
         return reducedDamage;
+    }
+    public static String getColoredText(String text, String color) {
+        return useANSIColors ? color + text + ANSI_RESET : text;
     }
 }
