@@ -11,5 +11,5 @@ Created and programmed by xhinvier, arcanecovet, nana-joy
 - Feel free to leave comments with suggestions or report any bugs encountered in the program.
 - This is a project submitted for OOP subject.
 
-Thank you,
+Thank you, <br>
 The Developers ❤️
