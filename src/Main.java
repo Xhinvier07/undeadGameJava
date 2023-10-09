@@ -143,7 +143,8 @@ class Main {
     public static void commandZombie(Zombie zombie, ArrayList<Undead> undeadList, Scanner scanner) {
         System.out.println(ANSI_GREEN + "\n\t+++ " + ANSI_RESET + "ZOMBIE COMMANDS");
         System.out.println("\t\t1. Attack");
-        System.out.println("\t\t2. Exit");
+        System.out.println("\t\t2. Eat");
+        System.out.println("\t\t3. Exit");
         System.out.print(ANSI_GREEN + "\t\tEnter your choice: " + ANSI_RESET);
         int choice = scanner.nextInt();
 
@@ -152,11 +153,42 @@ class Main {
                 attackUndead(zombie, undeadList, scanner);
                 break;
             case 2:
+                eatUndead(zombie, undeadList, scanner);
+            case 3:
                 break; // Exit
             default:
                 System.out.println(ANSI_BLUE + "\t\tInvalid choice." + ANSI_RESET);
         }
     }
+
+
+    public static void eatUndead(Zombie zombie, ArrayList<Undead> undeadList, Scanner scanner) {
+        if (zombie.isDead()) {
+            System.out.println("\n\t\t" + zombie.getName() + " is already dead.");
+            return;
+        }
+
+        System.out.println(ANSI_GREEN + "\n\t\tChoose an undead to eat:" + ANSI_RESET);
+
+        for (int i = 0; i < undeadList.size(); i++) {
+            if (undeadList.get(i) != zombie && !undeadList.get(i).isDead()) {
+                System.out.println("\t\t" + (i + 1) + ". " + undeadList.get(i).getName());
+            }
+        }
+
+        System.out.print("\n\t\tEnter the number of the undead to eat: ");
+        int targetIndex = scanner.nextInt();
+
+        if (targetIndex < 1 || targetIndex > undeadList.size()) {
+            System.out.println(ANSI_BLUE + "\t\tInvalid target." + ANSI_RESET);
+            return;
+        }
+
+        Undead target = undeadList.get(targetIndex - 1);
+        zombie.eat(target);
+        System.out.println(ANSI_RED + "\t\t" + zombie.getName() + " eats " + target.getName() + "!" + ANSI_RESET);
+    }
+
 
     public static void commandVampire(Vampire vampire, ArrayList<Undead> undeadList, Scanner scanner) {
         System.out.println(ANSI_GREEN + "\n\t+++ " + ANSI_RESET + "VAMPIRE COMMANDS");

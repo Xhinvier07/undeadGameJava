@@ -25,7 +25,16 @@ public class Zombie extends Undead {
             }
         }
         else{
-            System.out.println("\t\t"+getName() + "Can't attack HP is low"+ Main.ANSI_GREEN + " HP: " + target.getHP()+ Main.ANSI_RESET);
+            System.out.println("\t\t"+getName() + " can't attack HP is low"+ Main.ANSI_GREEN + " HP: " + getHP()+ Main.ANSI_RESET);
+        }
+    }
+
+    public void eat(Undead target) {
+        if (!isDead() && !target.isDead()) {
+            int healAmount = (int) (target.getHP() /2);
+            setHP(getHP() + healAmount);
+            System.out.println("\t\t"+getName() + " eats "  + "with " + Main.ANSI_BLUE + healAmount + " HP "+Main.ANSI_RESET);
+            System.out.println("\t\t"+target.getName() + Main.ANSI_GREEN+ " HP: " + target.getHP()+Main.ANSI_RESET);
         }
     }
 }
