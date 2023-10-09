@@ -38,7 +38,6 @@ public class Lich extends Skeleton {
     public void castSpell(Undead target) {
         if (!isDead() && !target.isDead()) {
             int hpAbsorb = (int) (target.getHP() * 0.1);
-            target.setHP(target.getHP() - hpAbsorb);
             setHP(getHP() + hpAbsorb);
             System.out.println("\t\t"+getName() + " heals "  + "with " + Main.ANSI_BLUE + hpAbsorb + " HP "+Main.ANSI_RESET);
             System.out.println("\t\t"+target.getName() + Main.ANSI_GREEN+ " HP: " + target.getHP()+Main.ANSI_RESET);
