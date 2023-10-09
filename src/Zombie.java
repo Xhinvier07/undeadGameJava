@@ -24,5 +24,8 @@ public class Zombie extends Undead {
                 System.out.println("\t\t"+target.getName() + Main.ANSI_GREEN+" HP: " + target.getHP()+Main.ANSI_RESET);
             }
         }
+        else{
+            System.out.println("\t\t"+getName() + "Can't attack HP is low"+ Main.ANSI_GREEN + " HP: " + target.getHP()+ Main.ANSI_RESET);
+        }
     }
 }
